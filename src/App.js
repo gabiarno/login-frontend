@@ -1,11 +1,11 @@
 import "./App.css";
 
 import { useEffect, useState } from "react";
-//import Login from "./Login";
-//import SignUp from "./SignUp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+
 import Securezone from "./Securezone";
 import Login from "./Login";
+import SignUp from "./SignUp";
 
 function App() {
   const [auth, setAuth] = useState();
@@ -22,14 +22,13 @@ function App() {
   return (
     <BrowserRouter>
     
-    console.log("en app");
       <Routes>
         <Route path="/" element={<Securezone isAuth={auth} />}></Route>
         <Route path="/login" element={<Login setAuth={setAuth} />}></Route>
+        <Route path="/signup" element={<SignUp />}></Route>
       </Routes>
     </BrowserRouter>
   );
 }
 
-//<Route path="/signup" element={<SignUp />}></Route>
 export default App;

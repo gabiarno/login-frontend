@@ -4,13 +4,14 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ setAuth }) => {
   const navigate = useNavigate();
   
-  const [username, setUsername] = useState("");
+  const [email, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginInfo, setLoginInfo] = useState({});
 
 
   useEffect(() => {
     if (loginInfo.isAuthenticated) {
+        console.log("loginInfo",loginInfo);
       window.sessionStorage.setItem("auth", JSON.stringify(loginInfo));
       setAuth(true);
       navigate("/");
@@ -18,7 +19,9 @@ const Login = ({ setAuth }) => {
   }, [loginInfo, navigate, setAuth]);
 
   const loginSubmit = () => {
-    const data = { username, password };
+    const data = { email, password };
+    console.log("test");
+    console.log("data",data);
 
     fetch("http://localhost:4000/user/sign-in", {
       method: "POST",
@@ -41,7 +44,7 @@ const Login = ({ setAuth }) => {
       )}
       <div>
         <label htmlFor="username">Username</label>
-        <input id="username" type="text" name="username" value={username} 
+        <input id="username" type="text" name="email" value={email} 
         onChange={(event) => setUsername(event.target.value)} />
 
         <label htmlFor="password">Password</label>
