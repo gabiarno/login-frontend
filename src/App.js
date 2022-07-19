@@ -21,6 +21,8 @@ function App() {
 
   return (
     <BrowserRouter>
+    
+    console.log("en app");
       <Routes>
         <Route path="/" element={<Securezone isAuth={auth} />}></Route>
         <Route path="/login" element={<Login setAuth={setAuth} />}></Route>

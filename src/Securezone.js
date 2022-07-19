@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Securezone = ({ isAuth }) => {
   const navigate = useNavigate();
 
+  console.log("isAuth in securezone",isAuth);
   useEffect(() => {
     if (isAuth === false) {
       navigate("/login");
